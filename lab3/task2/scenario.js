@@ -1,39 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const taskInput = document.getElementById("taskInput");
-    const addTaskButton = document.getElementById("addTask");
-    const taskList = document.getElementById("taskList");
+    const engizu = document.getElementById("taskInput");
+    const kosu = document.getElementById("addTask");
+    const list = document.getElementById("taskList");
+    const cnt = document.getElementsByClassName("counter")[0]
 
-    addTaskButton.addEventListener("click", function () {
-        const taskText = taskInput.value.trim();
-        if (taskText === "") return;
+    let counter = 0;
+
+    kosu.addEventListener("click", function () {
+        const text = engizu.value.trim();
+        if (text === "") return;
 
         const li = document.createElement("li");
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+
         checkbox.addEventListener("change", function () {
-            li.classList.toggle("completed");
+            span.classList.toggle("completed");
         });
 
         const span = document.createElement("span");
-        span.textContent = taskText;
+        span.textContent = text;
 
-        // Заменяем кнопку на FontAwesome иконку
         const trashIcon = document.createElement("i");
-        trashIcon.classList.add("fa", "fa-trash-o");
-        trashIcon.style.fontSize = "25px"; // Размер иконки
-        trashIcon.style.color = "red"; // Цвет
-        trashIcon.style.cursor = "pointer"; // Курсор при наведении
-        trashIcon.style.marginLeft = "10px"; // Отступ слева
+        trashIcon.classList.add("fa", "fa-trash-o"); 
         trashIcon.addEventListener("click", function () {
-            taskList.removeChild(li);
+            list.removeChild(li);
         });
 
         li.appendChild(checkbox);
         li.appendChild(span);
         li.appendChild(trashIcon);
-        taskList.appendChild(li);
+        list.appendChild(li);
+        
+        counter++;
 
-        taskInput.value = "";
+        cnt.innerHTML = counter;
+
+
+        engizu.value = "";
     });
+    
 });

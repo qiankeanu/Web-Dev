@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 
-.navbar {
+.basy {
     background-color: #222;
     color: rgb(135, 132, 132);
     padding: 15px;
@@ -73,6 +73,7 @@ li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     font-size: 20px;
+
 }
 li span{
     text-align: left;
@@ -82,10 +83,10 @@ li span{
     color: gray;
 }
 
-.delete {
-    text-decoration: none;
-    background: none;
-    border: none;
+i{
     color: red;
+    font-size: 35px;
     cursor: pointer;
+    margin-left: 10px;
 }
+
