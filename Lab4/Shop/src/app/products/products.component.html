@@ -1,8 +1,23 @@
-<div *ngFor="let goods of products">
-  <h2><a class="items" href="{{goods.productLink}}">{{ goods.name }}</a></h2>
-  <p>{{ goods.description }}</p>
-  <p>Price: {{ goods.price }} ₸</p>
-  <p>Rating: {{goods.rating}}</p>
-  <img src="{{ goods.imageLink }}" alt="{{ goods.name }}" width="10%" ><br>
-  <button type="button" (click)="sharing(goods.id)">Share</button>
+<div class="products-container">
+  <div class="product-card" *ngFor="let goods of products">
+    <a [href]="goods.productLink" target="_blank" class="buy-button">Buy</a>
+
+    <h2>
+      <a class="items" [href]="goods.productLink" target="_blank">{{ goods.name }}</a>
+    </h2>
+    <p>{{ goods.description }}</p>
+    <p><strong>Price:</strong> {{ goods.price }} ₸</p>
+    <p><strong>Rating:</strong> {{ goods.rating }}</p>
+    <img [src]="goods.imageLink" [alt]="goods.name" class="product-image">
+
+    <div class="share-buttons">
+      <a [href]="'https://wa.me/?text=' + encode(goods.productLink)" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
+      </a>
+
+      <a (click)="sharing(goods.id)" style="cursor: pointer;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="30">
+      </a>
+    </div>
+  </div>
 </div>

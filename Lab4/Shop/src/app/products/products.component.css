@@ -1,3 +1,80 @@
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
 .items {
   text-decoration: none;
 }
+.product-card {
+  width: calc(25% - 20px); 
+  min-width: 200px;
+  max-width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.share-buttons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.product-card {
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Кнопка "Купить" по умолчанию скрыта */
+.buy-button {
+  position: absolute;
+  top: 5px;
+  right: 100px;
+  background-color: rgb(9, 49, 125);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+
+.product-card:hover .buy-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.buy-button:hover {
+  background-color: #ab2525;
+}
+
