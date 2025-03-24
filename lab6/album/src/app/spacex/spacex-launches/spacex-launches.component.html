@@ -1,0 +1,7 @@
+<app-launch-filter (filter)="filterLaunches($event)"></app-launch-filter>
+
+<div *ngFor="let launch of filteredLaunches">
+  <h4>{{ launch.name }}</h4>
+  <p>Data: {{ launch.date_utc | date }}</p>
+  <p>Status: {{ launch.success ? 'Success' : 'Failure' }}</p>
+</div>

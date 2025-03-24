@@ -7,7 +7,6 @@ import { Album, Photo } from '../models';
   providedIn: 'root'
 })
 export class AlbumsService {
-  
   private apiURL = 'https://jsonplaceholder.typicode.com/albums'; 
   
   constructor(private client: HttpClient) { }

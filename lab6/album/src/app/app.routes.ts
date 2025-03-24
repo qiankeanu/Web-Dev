@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AlbumPhotosComponent } from './album-photos/album-photos.component';
 
+import { SpacexLaunchesComponent } from './spacex/spacex-launches/SpacexLaunchesComponent';
+
+
 export const routes: Routes = [
     {
         path:'home' , component: HomeComponent, title : 'Home Page'
@@ -24,5 +27,8 @@ export const routes: Routes = [
     },
     {
         path:'albums/:id/photos', component :AlbumPhotosComponent , title : 'Album photos'
+    },
+    {
+        path: 'spacex', component: SpacexLaunchesComponent, title: 'SpaceX Launches'
     }
 ];
