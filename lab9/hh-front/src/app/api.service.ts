@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Company} from './company';
-import {Vacancy} from './vacancy';
+import { Company } from './company';
+import { Vacancy } from './vacancy';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8000'; 
 
-  constructor(private http: HttpClient) { }
+    private baseUrl = 'http://127.0.0.1:8000/api' ;  
 
-  getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(`${this.baseUrl}/companies/`);
-  }
+    constructor(private http: HttpClient) { }
 
-  getVacancies(companyId: number): Observable<Vacancy[]> {
-    return this.http.get<Vacancy[]>(`${this.baseUrl}/companies/${companyId}/vacancies/`);
-  }
+    getCompanies(): Observable<Company[]> {
+        return this.http.get<Company[]>(`${this.baseUrl}/companies/`);
+    }
+
+    getCompanyVacancies(companyId: number): Observable<Vacancy[]> {
+        return this.http.get<Vacancy[]>(`${this.baseUrl}/companies/${companyId}/vacancies/`);
+    }
+
+    getVacancies(): Observable<Vacancy[]> {
+     return this.http.get<Vacancy[]>(`${this.baseUrl}/vacancies/`);
+    }
 }
