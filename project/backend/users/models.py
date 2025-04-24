@@ -9,13 +9,13 @@ class Status(models.TextChoices):
     NOT_INTERESTED="NI","employed,notsearching for job,not interested in job offers"
 
 class Profile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    surname=models.CharField(max_length=255)
-    middle_name=models.CharField(max_length=255)
-    given_name=models.CharField(max_length=255)
-    birthday=models.DateField(
-        auto_now_add=False,
-        blank=True
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    surname = models.CharField(max_length=255)
+    middle_name = models.CharField(max_length=255)
+    given_name = models.CharField(max_length=255)
+    birthday = models.DateField(
+        null=True,  # Allow NULL values
+        blank=True  # Allow blank in forms
     )
     phone_number=PhoneNumberField(blank=True)
     photo=models.ImageField(

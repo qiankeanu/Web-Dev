@@ -1,28 +1,144 @@
-<div class="register-container">
-    <h2>Register</h2>
-    <form (ngSubmit)="register()" #registerForm="ngForm">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="username"
-        name="username"
-        required
-      />
-  
-      <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" required />
-  
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="password"
-        name="password"
-        required
-      />
-      
-      <button type="submit" [disabled]="!registerForm.form.valid">Register</button>
+<div class="min-h-screen flex flex-col justify-center py-12 px-6">
+  <div class="max-w-md w-full mx-auto">
+    <h1 class="text-3xl font-bold">Регистрация</h1>
+    <p class="text-gray-600 mt-2">Создайте аккаунт для доступа к платформе</p>
+
+    <form (ngSubmit)="register()" #registerForm="ngForm" class="mt-8 space-y-6">
+      <!-- Basic Info -->
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input 
+            type="email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Имя пользователя</label>
+          <input 
+            type="text" 
+            [(ngModel)]="username" 
+            name="username" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <!-- Personal Info -->
+        <div>
+          <label class="block text-sm font-medium">Фамилия</label>
+          <input 
+            type="text" 
+            [(ngModel)]="surname" 
+            name="surname" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Имя</label>
+          <input 
+            type="text" 
+            [(ngModel)]="givenName" 
+            name="givenName" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Отчество</label>
+          <input 
+            type="text" 
+            [(ngModel)]="middleName" 
+            name="middleName"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Дата рождения</label>
+          <input 
+            type="date" 
+            [(ngModel)]="birthday" 
+            name="birthday" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Номер телефона</label>
+          <input 
+            type="tel" 
+            [(ngModel)]="phoneNumber" 
+            name="phoneNumber"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Статус поиска работы</label>
+          <select 
+            [(ngModel)]="status" 
+            name="status" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+            <option *ngFor="let option of statusOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Фото</label>
+          <input 
+            type="file" 
+            (change)="onPhotoSelected($event)" 
+            accept="image/*"
+            class="mt-1 block w-full"
+          >
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label class="block text-sm font-medium">Пароль</label>
+          <input 
+            type="password" 
+            [(ngModel)]="password" 
+            name="password" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Подтвердите пароль</label>
+          <input 
+            type="password" 
+            [(ngModel)]="confirmPassword" 
+            name="confirmPassword" 
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          >
+        </div>
+      </div>
+
+      <div *ngIf="error" class="text-red-600 text-sm">{{ error }}</div>
+
+      <button 
+        type="submit"
+        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      >
+        Зарегистрироваться
+      </button>
     </form>
   </div>
+</div>
   
